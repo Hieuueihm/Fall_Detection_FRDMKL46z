@@ -1,0 +1,13 @@
+.\objects\accel.o: accel.c
+.\objects\accel.o: accel.h
+.\objects\accel.o: .\RTE\Device\MKL46Z256VLL4\MKL46Z4.h
+.\objects\accel.o: C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm0plus.h
+.\objects\accel.o: C:\Keil_v5\ARM\Compilerv506\Bin\..\include\stdint.h
+.\objects\accel.o: C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\accel.o: C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\accel.o: C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\accel.o: .\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h
+.\objects\accel.o: i2c.h
+.\objects\accel.o: systick.h
+.\objects\accel.o: uart.h
+.\objects\accel.o: C:\Keil_v5\ARM\Compilerv506\Bin\..\include\stdio.h

@@ -4,6 +4,7 @@
 void uart_init(){
 	SIM->SCGC4 |= (1 << 10);
 	SIM->SCGC5 |= (1 << 9);
+	// set clock 
 	SIM->SOPT2 |= (1 << 26) | (1 << 16);
 	
 	// 8 9 10 -> 0 1 0 -> al2

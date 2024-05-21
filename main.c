@@ -4,6 +4,8 @@
 #include "uart.h"
 #include "clock.h"
 #include "lcd.h"
+#include "i2c.h"
+#include "accel.h"
 
 
 uint8_t main_status = 0; // 0 off - 1 on
@@ -18,12 +20,19 @@ int main(void){
 	systick_init();
 	switch_init();
 	uart_init();
+	
 	led_init(RED_LED);
 	led_init(GREEN_LED);
 	
+	led_on(RED_LED);
+	
 	lcd_init();
+		i2c_init();
+
+	accel_init();
 
 	while(1){
+		uart_send_msg("bla");
 	if(main_status == 0){
 			led_off(RED_LED);
 			led_off(GREEN_LED);

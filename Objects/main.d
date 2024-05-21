@@ -12,3 +12,5 @@
 .\objects\main.o: uart.h
 .\objects\main.o: clock.h
 .\objects\main.o: lcd.h
+.\objects\main.o: i2c.h
+.\objects\main.o: accel.h
