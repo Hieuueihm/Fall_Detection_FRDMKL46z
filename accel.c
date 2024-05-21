@@ -1,19 +1,51 @@
 #include "accel.h"
 #include "stdio.h"
-#define ACC_DEVICE_ADDRESS                	0x1D
-#define ACC_DEVICE_ID_REGISTER_ADDRESS     	0x0D
-#define XYZ_CFG 						   							0x0E
-#define ACC_CTRL_REG1                      	0x2A
-#define ACC_OUT_X_MSB                      	0x01
 
 
 void accel_init(){
-	unsigned char ACC_DEVICE_ID;
-	ACC_DEVICE_ID = i2c_read_single_byte(ACC_DEVICE_ADDRESS, ACC_DEVICE_ID_REGISTER_ADDRESS);
+	// who am i
+	unsigned char device_id;
+	unsigned char reg_value;
+	device_id = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, WHO_AM_I_REG);
 
-	while(ACC_DEVICE_ID != 0x1A){
-		uart_send_msg("err");
+	while(device_id != ACCEL_WHO_AM_I){
+		uart_send_msg("don't found ACCEL ~");
 	}
+	// config ACCEL;
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2, 0x40); // sofeware reset
+	reg_value = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2) & 0x40;
+	while(reg_value){
+		reg_value = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2) & 0x40;
+
+	}
+		i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x18);			// ODR = 100Hz, standby
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, XYZ_DATA_CFG_REG, 0x00); // default 2g -> 4096 and high pass filter disable
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2, 0x02);			// High Resolution mode
+	
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_CFG_REG, 0xD8);		
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FT_MT_THS_REG, 0x30);		// Threshold Setting Value for the Freefall detection of  0.2g (4 * 0.063)
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_COUNT_REG, 0x0A);   	
+
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG4, 0x04);			// Enable Motion/Freefall Interrupt
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG5, 0x04);			// Freefall interrupt routed to INT1 - PTC6
+
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x19);			// ODR = 100Hz, Active mode	
+	
+	PORTC->PCR[6]=  PORT_PCR_IRQC(0xA);	
+	NVIC_EnableIRQ(PORTC_PORTD_IRQn);
+
+	
+	SIM->SCGC5 |= SIM_SCGC5_PORTA_MASK;
+	PORTA->PCR[14] = PORT_PCR_IRQC(0xA);
+	NVIC_SetPriority(PORTA_IRQn, 1);
+	NVIC_EnableIRQ(PORTA_IRQn);
+
+	
+
+	
+
+	
+	
 
 
 }

@@ -24,18 +24,18 @@ int main(void){
 	led_init(RED_LED);
 	led_init(GREEN_LED);
 	
-	led_on(RED_LED);
+//led_on(RED_LED);
 	
 	lcd_init();
-		i2c_init();
+	i2c_init();
 
 	accel_init();
 
 	while(1){
 		uart_send_msg("bla");
 	if(main_status == 0){
-			led_off(RED_LED);
-			led_off(GREEN_LED);
+			//led_off(RED_LED);
+			//led_off(GREEN_LED);
 			lcd_display_digit(NUM_1);
 			delay_ms(100);
 			
@@ -51,11 +51,23 @@ int main(void){
 
 
 void PORTC_PORTD_IRQHandler(){
+
 		if((PTC -> PDIR & (1 << 3)) == 0){
 			main_status = main_status == 0 ? 1 : 0;
 		}
+		led_on(RED_LED);
+
 		// clear interrupt
-		PORTC->PCR[3] |= (1 << 24);
+					PORTC->PCR[3] |= (1 << 24);
+
+		
+}
+
+void PORTA_IRQHandler(){
+	PORTA->PCR[14] |= PORT_PCR_ISF_MASK;	
+	led_on(RED_LED);
+	i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, INT_SOURCE_REG);
+
 }
 
 /*

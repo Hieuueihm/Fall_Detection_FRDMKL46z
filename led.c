@@ -4,6 +4,8 @@
 #define GREEN_LED_PIN (1 << 5)
 
 
+
+
 void led_init(uint8_t led){
 	if(led == GREEN_LED){
 		SIM->SCGC5 |= 1 << 12;      //This enables clock to port D

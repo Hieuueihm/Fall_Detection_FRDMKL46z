@@ -8,3 +8,4 @@
 .\objects\i2c.o: C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h
 .\objects\i2c.o: .\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h
 .\objects\i2c.o: systick.h
+.\objects\i2c.o: uart.h
