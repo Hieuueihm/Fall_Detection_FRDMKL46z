@@ -31,14 +31,20 @@ void accel_init(){
 
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x19);			// ODR = 100Hz, Active mode	
 	
-	PORTC->PCR[6]=  PORT_PCR_IRQC(0xA);	
-	NVIC_EnableIRQ(PORTC_PORTD_IRQn);
 
 	
-	SIM->SCGC5 |= SIM_SCGC5_PORTA_MASK;
-	PORTA->PCR[14] = PORT_PCR_IRQC(0xA);
-	NVIC_SetPriority(PORTA_IRQn, 1);
-	NVIC_EnableIRQ(PORTA_IRQn);
+	
+	SIM->SCGC5 |= SIM_SCGC5_PORTC_MASK;
+
+    // Configure PORTA pin 1 as GPIO
+    PORTC->PCR[6] &= ~PORT_PCR_MUX_MASK;
+    PORTC->PCR[6] |= PORT_PCR_MUX(1);
+
+    // Configure PORTA pin 1 interrupt on falling edge
+    PORTC->PCR[6] &= ~PORT_PCR_IRQC_MASK;   // Clear IRQC field
+    PORTC->PCR[6] |= PORT_PCR_IRQC(0b1010); // Set IRQC to falling edge interrupt
+
+   
 
 	
 
