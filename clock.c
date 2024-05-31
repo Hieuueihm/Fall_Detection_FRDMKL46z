@@ -42,7 +42,7 @@ void mcg_clock_config(void) {
 		while (!(MCG->S & MCG_S_PLLST_MASK)) {}
 		while (!(MCG->S & MCG_S_LOCK0_MASK)) {}
 			
-		// OUTDIV1 / 2 and OUTDIV 4 / 2
+		// OUTDIV1 / 2 and OUTDIV4 / 2
     SIM->CLKDIV1 = SIM_CLKDIV1_OUTDIV1_DIV_4 | SIM_CLKDIV1_OUTDIV4_DIV_4;
 		// 24MHz
 		SystemCoreClockUpdate();

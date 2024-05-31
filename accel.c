@@ -11,38 +11,53 @@ void accel_init(){
 	while(device_id != ACCEL_WHO_AM_I){
 		uart_send_msg("don't found ACCEL ~");
 	}
+	
 	// config ACCEL;
+	
+	// reset && wait reset enable
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2, 0x40); // sofeware reset
 	reg_value = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2) & 0x40;
 	while(reg_value){
 		reg_value = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2) & 0x40;
 
 	}
-		i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x18);			// ODR = 100Hz, standby
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, XYZ_DATA_CFG_REG, 0x00); // default 2g -> 4096 and high pass filter disable
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2, 0x02);			// High Resolution mode
 	
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_CFG_REG, 0xD8);		
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FT_MT_THS_REG, 0x30);		// Threshold Setting Value for the Freefall detection of  0.2g (4 * 0.063)
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_COUNT_REG, 0x0A);   	
+	
+	// 0b0010000
+	// 0b00011010
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x1A);			// ODR = 100, standby
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, XYZ_DATA_CFG_REG, 0x02); // default 8g ->
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG2, 0x00);			// High Resolution mode
+	
+	// 0b00111000
+	// enable freefall
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_CFG_REG, 0x38);		
+	
+	// 8 * 0.06 
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_THS_REG, 6);
+// 0b000000
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, FF_MT_COUNT_REG, 3);   	
 
+	
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG4, 0x04);			// Enable Motion/Freefall Interrupt
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG5, 0x04);			// Freefall interrupt routed to INT1 - PTC6
 
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x19);			// ODR = 100Hz, Active mode	
+	// start 
+	// 0b00100001
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x21);			// ODR = 50Hz, Active mode	
 	
 
 	
 	
-	SIM->SCGC5 |= SIM_SCGC5_PORTC_MASK;
+		SIM->SCGC5 |= SIM_SCGC5_PORTC_MASK;
 
     // Configure PORTA pin 1 as GPIO
-    PORTC->PCR[6] &= ~PORT_PCR_MUX_MASK;
-    PORTC->PCR[6] |= PORT_PCR_MUX(1);
+    PORTC->PCR[5] &= ~PORT_PCR_MUX_MASK;
+    PORTC->PCR[5] |= PORT_PCR_MUX(1);
 
     // Configure PORTA pin 1 interrupt on falling edge
-    PORTC->PCR[6] &= ~PORT_PCR_IRQC_MASK;   // Clear IRQC field
-    PORTC->PCR[6] |= PORT_PCR_IRQC(0b1010); // Set IRQC to falling edge interrupt
+    PORTC->PCR[5] &= ~PORT_PCR_IRQC_MASK;   // Clear IRQC field
+    PORTC->PCR[5] |= PORT_PCR_IRQC(0b1010); // Set IRQC to falling edge interrupt
 
    
 

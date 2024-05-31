@@ -14,3 +14,4 @@
 .\objects\main.o: lcd.h
 .\objects\main.o: i2c.h
 .\objects\main.o: accel.h
+.\objects\main.o: C:\Keil_v5\ARM\Compilerv506\Bin\..\include\stdio.h

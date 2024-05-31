@@ -36,7 +36,7 @@
 
 #define FF_MT_CFG_REG         0x15
 #define FF_MT_SRC_REG         0x16
-#define FT_MT_THS_REG         0x17
+#define FF_MT_THS_REG         0x17
 #define FF_MT_COUNT_REG       0x18
 
 #define TRANSIENT_CFG_REG     0x1D

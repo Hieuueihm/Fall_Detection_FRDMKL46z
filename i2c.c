@@ -78,7 +78,8 @@ void i2c_read_multiple_byte(unsigned char address, unsigned char reg_adddress, i
 		uint8_t i = 0;
 		unsigned char temp = 0;
 		I2C_START();
-		I2C0->D = (address << 1) & (0xFE);
+	// 11111110
+		I2C0->D = (address << 1) & (0xFE); // (address << 1) | RW
 		I2C_WAIT();
 	
 		I2C0->D = reg_adddress;
