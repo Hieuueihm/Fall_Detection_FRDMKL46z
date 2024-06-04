@@ -64,8 +64,19 @@
 #define OFF_X_REG             0x2F
 #define OFF_Y_REG             0x30
 #define OFF_Z_REG             0x31
-void accel_init();
-void accel_start();
-void accel_acq_cal();
+
+
+#define FREE_FALL 0
+#define MOTION_DETECTION 1
+
+
+
+
+void accel_init(void);
+
+
+void accel_config(uint8_t MODE, uint8_t THRESHOLD, uint8_t DEBOUNCE);
+
+
 
 #endif

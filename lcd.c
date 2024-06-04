@@ -86,6 +86,8 @@ void lcd_init(){
 	}
 
 void lcd_display_digit(uint8_t NUM) {
+			LCD->AR &= ~(1 << 5);
+
 		if(NUM == NUM_0){
 			waveForm = (kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate | kSLCD_PhaseDActivate );
 			
@@ -104,7 +106,7 @@ void lcd_display_digit(uint8_t NUM) {
    
 		}else if(NUM == NUM_1){
 			waveForm = (kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate | kSLCD_PhaseDActivate );
-				lcd_set_frontplane_segments(37, 0);
+			lcd_set_frontplane_segments(37, 0);
 			lcd_set_frontplane_segments(17, 0);
 
 			lcd_set_backplane_phase(40, kSLCD_PhaseAActivate); // LCD_P40
@@ -122,7 +124,9 @@ void lcd_display_digit(uint8_t NUM) {
 }
 
 void lcd_clear(){
-		LCD->AR |= (1 << 6);
-		LCD->AR &= ~(1 << 6);
+	
+
+		LCD->AR |= (1 << 5);
+
 	
 }

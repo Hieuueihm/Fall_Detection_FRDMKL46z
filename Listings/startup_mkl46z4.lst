@@ -702,11 +702,10 @@ ARM Macro Assembler    Page 11
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0+ --apcs=inter
 work --depend=.\objects\startup_mkl46z4.d -o.\objects\startup_mkl46z4.o -I.\RTE
 \Device\MKL46Z256VLL4 -I.\RTE\_Target_1 -IC:\Users\gbmhi\AppData\Local\Arm\Pack
-s\ARM\CMSIS\5.9.0\CMSIS\Core\Include -IC:\Users\gbmhi\AppData\Local\Arm\Packs\N
-XP\MKL46Z4_DFP\10.0.3 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSIO
-N SETA 539" --predefine="_RTE_ SETA 1" --predefine="CPU_MKL46Z256VLL4 SETA 1" -
--predefine="_RTE_ SETA 1" --list=.\listings\startup_mkl46z4.lst RTE/Device/MKL4
-6Z256VLL4/startup_MKL46Z4.s
+s\ARM\CMSIS\5.0.1\CMSIS\Include -IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MK
+L46Z4_DFP\10.0.3 --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SET
+A 540" --predefine="CPU_MKL46Z256VLL4 SETA 1" --predefine="_RTE_ SETA 1" --list
+=.\listings\startup_mkl46z4.lst RTE/Device/MKL46Z256VLL4/startup_MKL46Z4.s
 
 
 
