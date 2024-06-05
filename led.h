@@ -6,7 +6,6 @@
 #define GREEN_LED 0
 #define RED_LED 1
 
-
 void led_init(uint8_t led);
 void led_on(uint8_t led);
 void led_off(uint8_t led);

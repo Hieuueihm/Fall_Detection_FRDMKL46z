@@ -9,5 +9,4 @@ void uart_init();
 void uart_tx(char c);
 void uart_send_msg(char str[]);
 
-
 #endif

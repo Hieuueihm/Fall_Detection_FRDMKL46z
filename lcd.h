@@ -8,7 +8,7 @@
 #define NUM_0 0
 
 void lcd_init(void);
-void lcd_display_digit(uint8_t NUM) ;
+void lcd_display_digit(uint8_t NUM);
 
 void lcd_clear(void);
 

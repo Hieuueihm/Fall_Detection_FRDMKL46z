@@ -2,7 +2,7 @@
 #define TIMER_H
 #include "mkl46z4.h"
 
-#define STATE_ACTIVE 0 
+#define STATE_ACTIVE 0
 #define STATE_FALL 1
 
 void pit_timer_init(float expected_time, uint8_t STATE);
