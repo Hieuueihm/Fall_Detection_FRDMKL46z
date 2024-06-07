@@ -93,6 +93,13 @@ void lcd_display_digit(uint8_t NUM)
 		// Set frontplane segments
 		lcd_set_frontplane_segments(37, kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseDActivate); // LCD_P37
 		lcd_set_frontplane_segments(17, kSLCD_PhaseDActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate); // LCD_P17
+
+		// SLCD_SetFrontPlaneSegments(LCD, 7, waveForm);  /* SLCD P07 --- LCD_P7. */
+		// SLCD_SetFrontPlaneSegments(LCD, 8, waveForm);  /* SLCD P08 --- LCD_P8. */
+		// SLCD_SetFrontPlaneSegments(LCD, 53, waveForm); /* SLCD P09 --- LCD_P53. */
+		// SLCD_SetFrontPlaneSegments(LCD, 38, waveForm); /* SLCD P10 --- LCD_P38. */
+		// SLCD_SetFrontPlaneSegments(LCD, 10, waveForm); /* SLCD P11 --- LCD_P10. */
+		// SLCD_SetFrontPlaneSegments(LCD, 11, waveForm); /* SLCD P12 --- LCD_P11. */
 	}
 	else if (NUM == NUM_1)
 	{

@@ -51,7 +51,8 @@ unsigned char i2c_read_single_byte(unsigned char address, unsigned char reg_addr
 
 	/*  direction=write : start+device_write;cmdbuff;xBuff; */
 	/*  direction=recive : start+device_write;cmdbuff;repeatStart+device_read;xBuff; */
-	unsigned char temp = 0;
+
+		unsigned char temp = 0;
 	unsigned char data = 0;
 	I2C_START();
 	I2C0->D = (address << 1) & (0xFE);

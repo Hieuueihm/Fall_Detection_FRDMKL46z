@@ -1,6 +1,6 @@
 Dependencies for Project 'Fall_Detection', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARM_Compiler_v5
-F (.\main.c)(0x665FCD67)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x666021B5)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (led.h)(0x665FCA06)
 I (.\RTE\Device\MKL46Z256VLL4\MKL46Z4.h)(0x65DDB8E2)
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0plus.h)(0x665C0635)
@@ -26,7 +26,7 @@ I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_co
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x665C0635)
 I (.\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h)(0x65DDB8E2)
 F (.\led.h)(0x665FCA06)()
-F (.\switch.c)(0x664573F6)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\switch.o --omf_browse .\objects\switch.crf --depend .\objects\switch.d)
+F (.\switch.c)(0x665FFBC9)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\switch.o --omf_browse .\objects\switch.crf --depend .\objects\switch.d)
 I (switch.h)(0x665FCA09)
 I (.\RTE\Device\MKL46Z256VLL4\MKL46Z4.h)(0x65DDB8E2)
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0plus.h)(0x665C0635)
@@ -35,7 +35,7 @@ I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_co
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_armcc.h)(0x665C0635)
 I (.\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h)(0x65DDB8E2)
 F (.\switch.h)(0x665FCA09)()
-F (.\systick.c)(0x665FCA0A)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
+F (.\systick.c)(0x665FD4F4)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
 I (systick.h)(0x665FCA0B)
 I (.\RTE\Device\MKL46Z256VLL4\MKL46Z4.h)(0x65DDB8E2)
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0plus.h)(0x665C0635)
@@ -63,7 +63,7 @@ I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\cmsis_ar
 I (.\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h)(0x65DDB8E2)
 I (systick.h)(0x665FCA0B)
 F (.\clock.h)(0x665FCA02)()
-F (.\lcd.c)(0x665FCA04)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
+F (.\lcd.c)(0x66600022)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\lcd.o --omf_browse .\objects\lcd.crf --depend .\objects\lcd.d)
 I (lcd.h)(0x665FCA05)
 I (.\RTE\Device\MKL46Z256VLL4\MKL46Z4.h)(0x65DDB8E2)
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0plus.h)(0x665C0635)
@@ -99,7 +99,7 @@ I (.\RTE\Device\MKL46Z256VLL4\system_MKL46Z4.h)(0x65DDB8E2)
 I (systick.h)(0x665FCA0B)
 I (uart.h)(0x665FCA10)
 F (.\i2c.h)(0x665FCA04)()
-F (.\timer.c)(0x665FCA0C)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
+F (.\timer.c)(0x665FD5B0)(--c99 --gnu -c --cpu Cortex-M0+ -D__EVAL -g -O0 --apcs=interwork --split_sections-I.\RTE\Device\MKL46Z256VLL4-I.\RTE\_Target_1-IC:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include-IC:\Users\gbmhi\AppData\Local\Arm\Packs\NXP\MKL46Z4_DFP\10.0.3-D__UVISION_VERSION="540" -DCPU_MKL46Z256VLL4 -D_RTE_-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
 I (timer.h)(0x665FCA0F)
 I (.\RTE\Device\MKL46Z256VLL4\mkl46z4.h)(0x65DDB8E2)
 I (C:\Users\gbmhi\AppData\Local\Arm\Packs\ARM\CMSIS\5.0.1\CMSIS\Include\core_cm0plus.h)(0x665C0635)

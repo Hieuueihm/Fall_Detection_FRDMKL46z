@@ -98,7 +98,7 @@ void PORTC_PORTD_IRQHandler()
       led_off(RED_LED);
     }
 
-    PORTC->PCR[SWITCH_2_PIN] |= CLEAR_INTR_PORTC_PORTD
+    PORTC->PCR[SWITCH_2_PIN] |= CLEAR_INTR_PORTC_PORTD;
   }
 
   // mmq intr handler
@@ -110,19 +110,18 @@ void PORTC_PORTD_IRQHandler()
       {
       case STATE_1:
         state = STATE_2;
-        uart_send_msg("state1");
+        // uart_send_msg("state1");
         accel_config(MOTION_DETECTION, 16, 10);
         break;
       case STATE_2:
-        uart_send_msg("state2");
+        // uart_send_msg("state2");
         state = STATE_3;
 
         accel_config(FREE_FALL, 17, 5);
         break;
       case STATE_3:
-        uart_send_msg("state3");
+        // uart_send_msg("state3");
         int8_t x = 0, y = 0, z = 0;
-
         x = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, 0x01);
         y = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, 0x03);
         z = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, 0x05);
