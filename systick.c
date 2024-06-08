@@ -17,7 +17,8 @@ void systick_init()
 
 void delay_ms(uint32_t tick)
 {
-	while (msTicks < tick)
-		;		 // Wait 500ms
+	// < 500 -> 0: 498 -> 499, 500 -> out 
+	while (msTicks < tick - 1)
+		;		 // Wait tick ms
 	msTicks = 0; // Reset counter
 }

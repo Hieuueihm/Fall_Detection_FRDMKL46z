@@ -11,6 +11,7 @@ void accel_init()
 	while (device_id != ACCEL_WHO_AM_I)
 	{
 		uart_send_msg("don't found ACCEL ~");
+		device_id = i2c_read_single_byte(ACCEL_DEVICE_ADDRESS, WHO_AM_I_REG);
 	}
 
 	// config ACCEL;

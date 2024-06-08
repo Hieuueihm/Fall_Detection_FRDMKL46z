@@ -72,7 +72,7 @@ unsigned char i2c_read_single_byte(unsigned char address, unsigned char reg_addr
 	I2C_RX_MODE();
 
 	I2C_DISABLE_ACK();
-
+	// dummy data
 	temp = I2C0->D;
 	I2C_WAIT();
 	I2C_STOP();
@@ -119,20 +119,20 @@ void i2c_read_multiple_byte(unsigned char address, unsigned char reg_adddress, i
 	DELAY();
 }
 
-void i2c_write_single_byte(unsigned char address, unsigned char reg_address, unsigned char data)
-{
-	I2C_START();
-	I2C0->D = (address << 1) & (0xFE);
-	I2C_WAIT();
+	void i2c_write_single_byte(unsigned char address, unsigned char reg_address, unsigned char data)
+	{
+		I2C_START();
+		I2C0->D = (address << 1) & (0xFE);
+		I2C_WAIT();
 
-	I2C0->D = reg_address;
-	I2C_WAIT();
+		I2C0->D = reg_address;
+		I2C_WAIT();
 
-	I2C0->D = data;
-	I2C_WAIT();
-	I2C_STOP();
-	DELAY();
-}
+		I2C0->D = data;
+		I2C_WAIT();
+		I2C_STOP();
+		DELAY();
+	}
 void i2c_write_multiple_byte(unsigned char address, unsigned char reg_address, int n, unsigned char data[])
 {
 
