@@ -13,18 +13,16 @@
 
 void mcg_clock_config(void)
 {
-
+	// add the 8pF - 16pF to the oscillator load
 	OSC0->CR = OSC_CR_SC16P_MASK | OSC_CR_SC8P_MASK;
-
 	// Select Osc clock
-
 	MCG->C2 = MCG_C2_HIGH_FRE_SL | MCG_C2_OSC_SL | MCG_C2_HGO0_MASK;
-
 	// Output from PLL is selected
 	MCG->C1 = MCG_C1_EX_CLK_FLL_DIV_256;
-
+	//	enable MCGIRCLK and ICLK is enabled in Stop Mode
 	MCG->C1 |= MCG_C1_IRCLKEN_MASK | MCG_C1_IREFSTEN_MASK;
 
+	// select slow internal clock
 	MCG->C2 &= ~MCG_C2_IRCS_MASK;
 
 	// check whether osc init successfully or not

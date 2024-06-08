@@ -1,6 +1,6 @@
 #include "systick.h"
 
-int32_t volatile msTicks = 0; // Interval counter in ms
+uint32_t volatile msTicks = 0; // Interval counter in ms
 void SysTick_Handler(void)
 {			   // SysTick interrupt Handler
 	msTicks++; // Increment counter
