@@ -8,7 +8,6 @@ void pit_timer_init(float expected_time, uint8_t STATE)
 	SIM->SCGC6 |= SIM_SCGC6_PIT_EN;
 	PIT->MCR = 0x00U;
 
-	NVIC_ClearPendingIRQ(22);
 	switch (STATE)
 	{
 	case STATE_ACTIVE:
@@ -27,6 +26,7 @@ void pit_timer_init(float expected_time, uint8_t STATE)
 
 		break;
 	}
+	NVIC_ClearPendingIRQ(22);
 	NVIC_SetPriority(22, 14);
 	NVIC_EnableIRQ(22);
 }

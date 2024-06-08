@@ -1,8 +1,10 @@
 #include "i2c.h"
 
+#define I2C_F_MUL_2 (1 << 6)
+
 #define I2C0_SCL 24
 #define I2C0_SDA 25
-#define I2C0_ALT_MUX 5
+#define I2C0_ALT5_MUX 5
 #define I2C0_CLK_EN (1 << 6)
 #define SIM_SCGC5_PORTE_EN (1 << 13)
 
@@ -37,12 +39,13 @@ void i2c_init()
 	SIM->SCGC4 |= SIM_SCGC4_I2C0_MASK;
 	SIM->SCGC5 |= SIM_SCGC5_PORTE_EN;
 
-	PORTE->PCR[I2C0_SCL] |= PORT_PCR_MUX(I2C0_ALT_MUX);
-	PORTE->PCR[I2C0_SDA] |= PORT_PCR_MUX(I2C0_ALT_MUX);
+	PORTE->PCR[I2C0_SCL] |= PORT_PCR_MUX(I2C0_ALT5_MUX);
+	PORTE->PCR[I2C0_SDA] |= PORT_PCR_MUX(I2C0_ALT5_MUX);
 
 	PORTE->PCR[I2C0_SCL] |= PORT_PCR_PS_MASK | PORT_PCR_PE_MASK;
 	PORTE->PCR[I2C0_SDA] |= PORT_PCR_PS_MASK | PORT_PCR_PE_MASK;
 
+	I2C0->F |= I2C_F_MUL_2;
 	I2C0->C1 |= I2C_C1_IICEN_MASK;
 }
 
@@ -52,7 +55,7 @@ unsigned char i2c_read_single_byte(unsigned char address, unsigned char reg_addr
 	/*  direction=write : start+device_write;cmdbuff;xBuff; */
 	/*  direction=recive : start+device_write;cmdbuff;repeatStart+device_read;xBuff; */
 
-		unsigned char temp = 0;
+	unsigned char temp = 0;
 	unsigned char data = 0;
 	I2C_START();
 	I2C0->D = (address << 1) & (0xFE);
