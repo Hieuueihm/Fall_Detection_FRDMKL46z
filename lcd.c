@@ -1,6 +1,12 @@
 #include "lcd.h"
 #include "led.h"
 
+#define GCR_RVEN_EN (1 << 31)
+#define GCR_CPSEL_EN (1 << 23)
+#define GCR_VSUPLLY_EN (1 << 17)
+#define GCR_SOURCE_ALT_EN (1 << 6)
+#define AR_LCD_BLANK_DISPLAY_EN (1 << 5)
+
 #define _LCDBLINKRATE (3)
 #define _LCDRVEN (1)		 //
 #define _LCDRVTRIM (8)		 // CPSEL = 1     0 -- 8000 pf 1 -- 6000 pf  2 -- 4000 pf  3 -- 2000 pf
@@ -15,8 +21,6 @@
 #define _LCDCLKSOURCE (1) // 0 -- External clock       1 --  Alternate clock
 #define _LCDLCK (1)		  // Any number between 0 and 7
 #define _LCDBLINKRATE (3)
-
-uint8_t waveForm = 0;
 
 static void lpo_source_init()
 {
@@ -54,20 +58,30 @@ void lcd_init()
 
 	LCD->GCR = 0;
 	LCD->AR = 0;
-	LCD->GCR = (LCD_GCR_RVEN_MASK * _LCDRVEN | LCD_GCR_RVTRIM(_LCDRVTRIM)												  // 0-15
-				| LCD_GCR_CPSEL_MASK * _LCDCPSEL | LCD_GCR_LADJ(_LCDLOADADJUST)											  // 0-3*/
-				| LCD_GCR_VSUPPLY_MASK * _LCDSUPPLY																		  // 0-1*/
-				| !LCD_GCR_FDCIEN_MASK | LCD_GCR_ALTDIV(_LCDALTDIV)														  // 0-3
-				| !LCD_GCR_LCDDOZE_MASK | !LCD_GCR_LCDSTP_MASK | !LCD_GCR_LCDEN_MASK									  // WILL BE ENABLE ON SUBSEQUENT STEP
-				| LCD_GCR_SOURCE_MASK * _LCDCLKSOURCE | LCD_GCR_ALTSOURCE_MASK * _LCDALRCLKSOURCE | LCD_GCR_LCLK(_LCDLCK) // 0-7
-				| LCD_GCR_DUTY(3)																						  // 0-7
-	);
+	// LCD->GCR = (LCD_GCR_RVEN_MASK * _LCDRVEN | LCD_GCR_RVTRIM(_LCDRVTRIM)												  // 0-15
+	// 			| LCD_GCR_CPSEL_MASK * _LCDCPSEL | LCD_GCR_LADJ(_LCDLOADADJUST)											  // 0-3*/
+	// 			| LCD_GCR_VSUPPLY_MASK * _LCDSUPPLY																		  // 0-1*/
+	// 			| !LCD_GCR_FDCIEN_MASK | LCD_GCR_ALTDIV(_LCDALTDIV)														  // 0-3
+	// 			| !LCD_GCR_LCDDOZE_MASK | !LCD_GCR_LCDSTP_MASK | !LCD_GCR_LCDEN_MASK									  // WILL BE ENABLE ON SUBSEQUENT STEP
+	// 			| LCD_GCR_SOURCE_MASK * _LCDCLKSOURCE | LCD_GCR_ALTSOURCE_MASK * _LCDALRCLKSOURCE | LCD_GCR_LCLK(_LCDLCK) // 0-7
+	// 			| LCD_GCR_DUTY(3)																						  // 0-7
+	// );
+
+	LCD->GCR = (GCR_RVEN_EN |
+				LCD_GCR_RVTRIM(_LCDRVTRIM) |
+				GCR_CPSEL_EN |
+				LCD_GCR_LADJ(_LCDLOADADJUST) |
+				GCR_VSUPLLY_EN |
+				LCD_GCR_ALTDIV(_LCDALTDIV) |
+				GCR_SOURCE_ALT_EN |
+				LCD_GCR_LCLK(_LCDLCK) |
+				LCD_GCR_DUTY(3));
 
 	LCD->PEN[0] = 0x000e0d80U; /* LCD_P19/P18/P17/P11/P10/P8/P7. */
 	LCD->PEN[1] = 0x00300160U; /* LCD_P53/P52/P40/P38/P37. */
 
-	LCD->BPEN[0] = 0x000c0000U; /* LCD_P19/P18 */
-	LCD->BPEN[1] = 0x00100100U; /* LCD_P52/P40 */
+	LCD->BPEN[0] = 0x000c0000U; /* LCD_P19/P18 --> b19/b18. */
+	LCD->BPEN[1] = 0x00100100U; /* LCD_P52/P40 --> b20/b8. */
 
 	LCD->AR = LCD_AR_BRATE(_LCDBLINKRATE);
 
@@ -76,11 +90,10 @@ void lcd_init()
 
 void lcd_display_digit(uint8_t NUM)
 {
-	LCD->AR &= ~(1 << 5);
+	LCD->AR &= ~AR_LCD_BLANK_DISPLAY_EN;
 
 	if (NUM == NUM_0)
 	{
-		waveForm = (kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate | kSLCD_PhaseDActivate);
 
 		lcd_set_frontplane_segments(37, 0);
 		lcd_set_frontplane_segments(17, 0);
@@ -103,7 +116,6 @@ void lcd_display_digit(uint8_t NUM)
 	}
 	else if (NUM == NUM_1)
 	{
-		waveForm = (kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate | kSLCD_PhaseDActivate);
 		lcd_set_frontplane_segments(37, 0);
 		lcd_set_frontplane_segments(17, 0);
 
@@ -120,5 +132,5 @@ void lcd_display_digit(uint8_t NUM)
 void lcd_clear()
 {
 
-	LCD->AR |= (1 << 5);
+	LCD->AR |= AR_LCD_BLANK_DISPLAY_EN;
 }

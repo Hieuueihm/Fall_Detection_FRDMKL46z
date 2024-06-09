@@ -1,8 +1,11 @@
 #include "systick.h"
 
+volatile uint32_t count = 0;
 uint32_t volatile msTicks = 0; // Interval counter in ms
 void SysTick_Handler(void)
-{			   // SysTick interrupt Handler
+{ // SysTick interrupt Handler
+
+	count++;
 	msTicks++; // Increment counter
 }
 void systick_init()
@@ -17,7 +20,7 @@ void systick_init()
 
 void delay_ms(uint32_t tick)
 {
-	// < 500 -> 0: 498 -> 499, 500 -> out 
+	// < 500 -> 0: 498 -> 499, 500 -> out
 	while (msTicks < tick - 1)
 		;		 // Wait tick ms
 	msTicks = 0; // Reset counter

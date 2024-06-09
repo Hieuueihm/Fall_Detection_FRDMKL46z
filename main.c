@@ -18,7 +18,9 @@
 #define STATE_1 1
 #define STATE_2 2
 #define STATE_3 3
-#define STATE_5 5
+
+// 1s -> 1
+#define TIME_OUT 5000
 
 #define MAIN_STATUS_STAND_BY 0
 #define MAIN_STATUS_ACTIVE 1
@@ -26,11 +28,14 @@
 #define SENSITIVITY 0.0625 // Sensitivity for �8g range
 #define CERTAIN_THRESHOLD 0.5
 
+extern volatile uint32_t count = 0;
+
 float convert_to_g(int8_t raw_value, float sensitivity);
 void read_accel_data(uint32_t delay);
 
 uint8_t main_status = MAIN_STATUS_STAND_BY;
 uint8_t state = STATE_1;
+uint32_t prev_time = 0;
 
 char buffer[50];
 float initX_f = 0, initY_f = -1, initZ_f = 0;
@@ -62,6 +67,13 @@ int main(void)
 
     //   read_accel_data(100);
     // }
+    if (state != STATE_1 && state != STATE_4)
+    {
+      if (count - prev_time >= TIME_OUT)
+      {
+        state = STATE_1;
+      }
+    }
   }
 }
 
@@ -106,6 +118,7 @@ void PORTC_PORTD_IRQHandler()
   {
     if (main_status == MAIN_STATUS_ACTIVE)
     {
+      prev_time = count;
       switch (state)
       {
       case STATE_1:
@@ -116,7 +129,6 @@ void PORTC_PORTD_IRQHandler()
       case STATE_2:
         // uart_send_msg("state2");
         state = STATE_3;
-
         accel_config(FREE_FALL, 17, 5);
         break;
       case STATE_3:
@@ -143,7 +155,7 @@ void PORTC_PORTD_IRQHandler()
           led_on(RED_LED);
           lcd_display_digit(NUM_1);
 
-          state = STATE_5; // TRANG THAI DA NGA
+          state = STATE_4; // TRANG THAI DA NGA
         }
         else
         {
@@ -180,7 +192,7 @@ void PIT_IRQHandler()
   }
   if (PIT->CHANNEL[1].TFLG == 1)
   {
-    if (state == STATE_5)
+    if (state == STATE_4)
     {
       led_toggle(RED_LED);
     }
