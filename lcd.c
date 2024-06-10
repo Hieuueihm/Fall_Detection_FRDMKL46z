@@ -22,15 +22,6 @@
 #define _LCDLCK (1)		  // Any number between 0 and 7
 #define _LCDBLINKRATE (3)
 
-static void lpo_source_init()
-{
-	SIM->SCGC5 |= SIM_SCGC5_LPTMR_MASK;
-
-	if ((SIM->SOPT1 & SIM_SOPT1_OSC32KSEL_MASK) == 0)
-	{
-		SIM->SOPT1 |= SIM_SOPT1_OSC32KSEL(3);
-	}
-}
 #define SLCD_WAVEFORM_CONFIG_NUM 16
 
 typedef enum _slcd_phase_type
@@ -53,19 +44,11 @@ void lcd_set_frontplane_segments(uint32_t pinIndex, uint32_t phase)
 void lcd_init()
 {
 
-	lpo_source_init();
 	SIM->SCGC5 |= SIM_SCGC5_SLCD_MASK | SIM_SCGC5_PORTB_MASK | SIM_SCGC5_PORTC_MASK | SIM_SCGC5_PORTD_MASK | SIM_SCGC5_PORTE_MASK;
 
 	LCD->GCR = 0;
 	LCD->AR = 0;
-	// LCD->GCR = (LCD_GCR_RVEN_MASK * _LCDRVEN | LCD_GCR_RVTRIM(_LCDRVTRIM)												  // 0-15
-	// 			| LCD_GCR_CPSEL_MASK * _LCDCPSEL | LCD_GCR_LADJ(_LCDLOADADJUST)											  // 0-3*/
-	// 			| LCD_GCR_VSUPPLY_MASK * _LCDSUPPLY																		  // 0-1*/
-	// 			| !LCD_GCR_FDCIEN_MASK | LCD_GCR_ALTDIV(_LCDALTDIV)														  // 0-3
-	// 			| !LCD_GCR_LCDDOZE_MASK | !LCD_GCR_LCDSTP_MASK | !LCD_GCR_LCDEN_MASK									  // WILL BE ENABLE ON SUBSEQUENT STEP
-	// 			| LCD_GCR_SOURCE_MASK * _LCDCLKSOURCE | LCD_GCR_ALTSOURCE_MASK * _LCDALRCLKSOURCE | LCD_GCR_LCLK(_LCDLCK) // 0-7
-	// 			| LCD_GCR_DUTY(3)																						  // 0-7
-	// );
+
 
 	LCD->GCR = (GCR_RVEN_EN |
 				LCD_GCR_RVTRIM(_LCDRVTRIM) |

@@ -22,7 +22,7 @@
 #define STATE_3 3
 
 // 1s -> 1
-#define TIME_OUT 5000
+#define TIME_OUT 5
 
 #define MAIN_STATUS_STAND_BY 0
 #define MAIN_STATUS_ACTIVE 1
@@ -30,7 +30,7 @@
 #define SENSITIVITY 0.0625 // Sensitivity for �8g range
 #define CERTAIN_THRESHOLD 0.5
 
-extern volatile uint32_t count;
+volatile uint32_t count = 0;
 
 float convert_to_g(int8_t raw_value, float sensitivity);
 void read_accel_data(uint32_t delay);
@@ -183,6 +183,7 @@ void PIT_IRQHandler()
 {
   if (PIT->CHANNEL[0].TFLG == 1)
   {
+		count++;
     if (main_status == MAIN_STATUS_ACTIVE)
     {
       led_toggle(GREEN_LED);

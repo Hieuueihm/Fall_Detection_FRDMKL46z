@@ -14,7 +14,7 @@ void led_init(uint8_t led)
 		SIM->SCGC5 |= SIM_SCGC5_PORTD_EN; // This enables clock to port D
 		PORTD->PCR[5] |= PCR_GPIO;		  // This sets the Mux control of PTD5 to 001, or GPIO
 		PTD->PDDR |= GREEN_LED_PIN;		  // This sets PTD5 as an output.
-		PTD->PSOR |= GREEN_LED_PIN;
+		PTD->PSOR |= GREEN_LED_PIN;   // clear led
 	}
 	else if (led == RED_LED)
 	{

@@ -20,7 +20,7 @@ void switch_init()
 	PORTC->PCR[SWITCH_1_PIN] |= PCR_GPIO;
 	PORTC->PCR[SWITCH_1_PIN] |= PS_PU_EN;
 	PORTC->PCR[SWITCH_1_PIN] |= PE_EN;
-	PORTC->PCR[SWITCH_1_PIN] |= PORT_PCR_IRQC(0xA);
+	PORTC->PCR[SWITCH_1_PIN] |= PORT_PCR_IRQC(0xA); // falling edge 
 
 	PTC->PDDR &= ~((uint32_t)(1 << SWITCH_1_PIN)); // clear pddr -> input mode
 
@@ -33,6 +33,6 @@ void switch_init()
 	PTC->PDDR &= ~((uint32_t)(1 << SWITCH_2_PIN));
 
 	NVIC_ClearPendingIRQ(PORTC_PORTD_IRQn);
-	NVIC_SetPriority(PORTC_PORTD_IRQn, 0);
+	NVIC_SetPriority(PORTC_PORTD_IRQn, 0); 
 	NVIC_EnableIRQ(PORTC_PORTD_IRQn);
 }
