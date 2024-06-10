@@ -73,6 +73,7 @@ int main(void)
     {
       if (abs(count, prev_time) >= TIME_OUT)
       {
+				accel_config(FREE_FALL, 6, 3);
         state = STATE_1;
       }
     }
@@ -87,6 +88,7 @@ void PORTC_PORTD_IRQHandler()
     main_status = main_status == MAIN_STATUS_STAND_BY ? MAIN_STATUS_ACTIVE : MAIN_STATUS_STAND_BY;
     if (main_status == MAIN_STATUS_ACTIVE)
     {
+			accel_config(FREE_FALL, 6, 3);
       state = STATE_1;
       led_on(GREEN_LED);
       lcd_display_digit(NUM_0);
@@ -107,6 +109,7 @@ void PORTC_PORTD_IRQHandler()
     }
     else if (main_status == MAIN_STATUS_ACTIVE)
     {
+			accel_config(FREE_FALL, 6, 3);
       state = STATE_1;
       lcd_display_digit(NUM_0);
       led_off(RED_LED);
@@ -161,6 +164,7 @@ void PORTC_PORTD_IRQHandler()
         }
         else
         {
+					accel_config(FREE_FALL, 6, 3);
           state = STATE_1;
         }
 
