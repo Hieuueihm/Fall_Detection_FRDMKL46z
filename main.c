@@ -23,12 +23,12 @@
 
 // 1s -> 1
 #define TIME_OUT 5
+#define EPSILON 0.3
 
 #define MAIN_STATUS_STAND_BY 0
 #define MAIN_STATUS_ACTIVE 1
 
 #define SENSITIVITY 0.0625 // Sensitivity for �8g range
-#define CERTAIN_THRESHOLD 0.5
 
 volatile uint32_t count = 0;
 
@@ -73,7 +73,7 @@ int main(void)
     {
       if (abs(count, prev_time) >= TIME_OUT)
       {
-				accel_config(FREE_FALL, 6, 3);
+        accel_config(FREE_FALL, 6, 3);
         state = STATE_1;
       }
     }
@@ -88,7 +88,7 @@ void PORTC_PORTD_IRQHandler()
     main_status = main_status == MAIN_STATUS_STAND_BY ? MAIN_STATUS_ACTIVE : MAIN_STATUS_STAND_BY;
     if (main_status == MAIN_STATUS_ACTIVE)
     {
-			accel_config(FREE_FALL, 6, 3);
+      accel_config(FREE_FALL, 6, 3);
       state = STATE_1;
       led_on(GREEN_LED);
       lcd_display_digit(NUM_0);
@@ -109,7 +109,7 @@ void PORTC_PORTD_IRQHandler()
     }
     else if (main_status == MAIN_STATUS_ACTIVE)
     {
-			accel_config(FREE_FALL, 6, 3);
+      accel_config(FREE_FALL, 6, 3);
       state = STATE_1;
       lcd_display_digit(NUM_0);
       led_off(RED_LED);
@@ -152,19 +152,23 @@ void PORTC_PORTD_IRQHandler()
 
         // xem 2 c�i c� su sai lech hay khong
 
-        float prevSum = initX_f + initY_f + initZ_f;
-        float currentSum = currentX_f + currentY_f + currentZ_f;
+        // 0 -1 0
+        // 0 0 -1
+        // 0 0 1
+        // 1 0 0
+        // -1 0 0
 
-        if (currentSum - prevSum >= CERTAIN_THRESHOLD)
+        if (abs(currentY_f, initY_f) >= EPSILON && (abs(currentX_f, initY_f) >= EPSILON || abs(currentZ_f, initZ_f) >= EPSILON))
         {
+
           led_on(RED_LED);
           lcd_display_digit(NUM_1);
-
           state = STATE_4; // TRANG THAI DA NGA
         }
+
         else
         {
-					accel_config(FREE_FALL, 6, 3);
+          accel_config(FREE_FALL, 6, 3);
           state = STATE_1;
         }
 
@@ -187,7 +191,7 @@ void PIT_IRQHandler()
 {
   if (PIT->CHANNEL[0].TFLG == 1)
   {
-		count++;
+    count++;
     if (main_status == MAIN_STATUS_ACTIVE)
     {
       led_toggle(GREEN_LED);
