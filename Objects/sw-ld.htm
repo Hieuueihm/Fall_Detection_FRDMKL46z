@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\sw-ld.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\sw-ld.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Wed Jun 05 15:28:40 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Mon Jun 10 15:04:51 2024
 <BR><P>
 <H3>Maximum Stack Usage =        104 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -367,8 +367,8 @@ Global Symbols
 </UL>
 <P><STRONG><a name="[a9]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text), UNUSED)
 
-<P><STRONG><a name="[67]"></a>__aeabi_uidivmod</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<P><STRONG><a name="[66]"></a>__aeabi_uidivmod</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, aeabi_sdiv.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;systick_init
 </UL>
@@ -424,7 +424,7 @@ Global Symbols
 
 <P><STRONG><a name="[ae]"></a>_dfixu</STRONG> (Thumb, 68 bytes, Stack size 8 bytes, dfixui.o(.text), UNUSED)
 
-<P><STRONG><a name="[64]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, f2d.o(.text))
+<P><STRONG><a name="[63]"></a>__aeabi_f2d</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, f2d.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pit_timer_init
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
 </UL>
@@ -439,7 +439,7 @@ Global Symbols
 <P><STRONG><a name="[50]"></a>__aeabi_i2f</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, fflti.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[51]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_i2f_normalise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
 </UL>
 
 <P><STRONG><a name="[b0]"></a>_fflt</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, fflti.o(.text), UNUSED)
@@ -494,39 +494,38 @@ Global Symbols
 
 <P><STRONG><a name="[b4]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[21]"></a>PIT_IRQHandler</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, main.o(i.PIT_IRQHandler))
+<P><STRONG><a name="[21]"></a>PIT_IRQHandler</STRONG> (Thumb, 82 bytes, Stack size 8 bytes, main.o(i.PIT_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PIT_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_toggle
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl46z4.o(RESET)
 </UL>
-<P><STRONG><a name="[2a]"></a>PORTC_PORTD_IRQHandler</STRONG> (Thumb, 452 bytes, Stack size 48 bytes, main.o(i.PORTC_PORTD_IRQHandler))
+<P><STRONG><a name="[2a]"></a>PORTC_PORTD_IRQHandler</STRONG> (Thumb, 442 bytes, Stack size 48 bytes, main.o(i.PORTC_PORTD_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = PORTC_PORTD_IRQHandler &rArr; __aeabi_cdrcmple
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_msg
+<BR>[Calls]<UL><LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fsub
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fadd
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_on
 <LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_off
 <LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_display_digit
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_clear
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_read_single_byte
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
-<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_read_single_byte
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl46z4.o(RESET)
 </UL>
-<P><STRONG><a name="[a]"></a>SysTick_Handler</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, systick.o(i.SysTick_Handler))
+<P><STRONG><a name="[a]"></a>SysTick_Handler</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, systick.o(i.SysTick_Handler))
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl46z4.o(RESET)
 </UL>
-<P><STRONG><a name="[66]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 372 bytes, Stack size 16 bytes, system_mkl46z4.o(i.SystemCoreClockUpdate))
+<P><STRONG><a name="[65]"></a>SystemCoreClockUpdate</STRONG> (Thumb, 372 bytes, Stack size 16 bytes, system_mkl46z4.o(i.SystemCoreClockUpdate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = SystemCoreClockUpdate &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
 </UL>
 <BR>[Called By]<UL><LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;mcg_clock_config
 </UL>
@@ -534,42 +533,42 @@ Global Symbols
 <P><STRONG><a name="[2b]"></a>SystemInit</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, system_mkl46z4.o(i.SystemInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SystemInit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInitHook
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInitHook
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_mkl46z4.o(.text)
 </UL>
-<P><STRONG><a name="[69]"></a>SystemInitHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_mkl46z4.o(i.SystemInitHook))
+<P><STRONG><a name="[68]"></a>SystemInitHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, system_mkl46z4.o(i.SystemInitHook))
 <BR><BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[68]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, system_mkl46z4.o(i.__ARM_common_switch8))
+<P><STRONG><a name="[67]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, system_mkl46z4.o(i.__ARM_common_switch8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
 </UL>
-<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 </UL>
 
-<P><STRONG><a name="[5f]"></a>accel_config</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, accel.o(i.accel_config))
+<P><STRONG><a name="[5e]"></a>accel_config</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, accel.o(i.accel_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = accel_config &rArr; i2c_write_single_byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_write_single_byte
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_write_single_byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
 </UL>
 
-<P><STRONG><a name="[6b]"></a>accel_init</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, accel.o(i.accel_init))
+<P><STRONG><a name="[6a]"></a>accel_init</STRONG> (Thumb, 246 bytes, Stack size 16 bytes, accel.o(i.accel_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = accel_init &rArr; accel_config &rArr; i2c_write_single_byte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_write_single_byte
+<BR>[Calls]<UL><LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_write_single_byte
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
-<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_msg
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_read_single_byte
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
+<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_msg
+<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_read_single_byte
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[61]"></a>convert_to_g</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, main.o(i.convert_to_g))
+<P><STRONG><a name="[60]"></a>convert_to_g</STRONG> (Thumb, 22 bytes, Stack size 16 bytes, main.o(i.convert_to_g))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = convert_to_g &rArr; __aeabi_fmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
@@ -578,29 +577,29 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
 </UL>
 
-<P><STRONG><a name="[77]"></a>i2c_init</STRONG> (Thumb, 92 bytes, Stack size 0 bytes, i2c.o(i.i2c_init))
+<P><STRONG><a name="[77]"></a>i2c_init</STRONG> (Thumb, 104 bytes, Stack size 0 bytes, i2c.o(i.i2c_init))
 <BR><BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[60]"></a>i2c_read_single_byte</STRONG> (Thumb, 218 bytes, Stack size 12 bytes, i2c.o(i.i2c_read_single_byte))
+<P><STRONG><a name="[5f]"></a>i2c_read_single_byte</STRONG> (Thumb, 218 bytes, Stack size 12 bytes, i2c.o(i.i2c_read_single_byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = i2c_read_single_byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
 <LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
 </UL>
 
-<P><STRONG><a name="[6a]"></a>i2c_write_single_byte</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, i2c.o(i.i2c_write_single_byte))
+<P><STRONG><a name="[69]"></a>i2c_write_single_byte</STRONG> (Thumb, 140 bytes, Stack size 8 bytes, i2c.o(i.i2c_write_single_byte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = i2c_write_single_byte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
-<LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_config
 </UL>
 
 <P><STRONG><a name="[5c]"></a>lcd_clear</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, lcd.o(i.lcd_clear))
 <BR><BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
 </UL>
 
-<P><STRONG><a name="[5b]"></a>lcd_display_digit</STRONG> (Thumb, 160 bytes, Stack size 8 bytes, lcd.o(i.lcd_display_digit))
+<P><STRONG><a name="[5b]"></a>lcd_display_digit</STRONG> (Thumb, 132 bytes, Stack size 8 bytes, lcd.o(i.lcd_display_digit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = lcd_display_digit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_set_frontplane_segments
@@ -641,7 +640,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PIT_IRQHandler
 </UL>
 
-<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[43]"></a>main</STRONG> (Thumb, 126 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = main &rArr; pit_timer_init &rArr; __aeabi_ddiv
 </UL>
 <BR>[Calls]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_init
@@ -652,7 +651,7 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;led_init
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lcd_init
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;i2c_init
-<LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
+<LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
@@ -660,7 +659,7 @@ Global Symbols
 <P><STRONG><a name="[72]"></a>mcg_clock_config</STRONG> (Thumb, 118 bytes, Stack size 8 bytes, clock.o(i.mcg_clock_config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = mcg_clock_config &rArr; SystemCoreClockUpdate &rArr; __ARM_common_switch8
 </UL>
-<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
+<BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemCoreClockUpdate
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -668,7 +667,7 @@ Global Symbols
 <P><STRONG><a name="[78]"></a>pit_timer_init</STRONG> (Thumb, 220 bytes, Stack size 40 bytes, timer.o(i.pit_timer_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = pit_timer_init &rArr; __aeabi_ddiv
 </UL>
-<BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
+<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2d
 <LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2uiz
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
@@ -688,7 +687,7 @@ Global Symbols
 <P><STRONG><a name="[73]"></a>systick_init</STRONG> (Thumb, 80 bytes, Stack size 8 bytes, systick.o(i.systick_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = systick_init &rArr; __NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 <LI><a href="#[7e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -697,25 +696,24 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>uart_init</STRONG> (Thumb, 116 bytes, Stack size 8 bytes, uart.o(i.uart_init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = uart_init
 </UL>
-<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+<BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[5e]"></a>uart_send_msg</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, uart.o(i.uart_send_msg))
+<P><STRONG><a name="[6b]"></a>uart_send_msg</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, uart.o(i.uart_send_msg))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = uart_send_msg
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_tx
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
-<LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
 </UL>
 
 <P><STRONG><a name="[7f]"></a>uart_tx</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, uart.o(i.uart_tx))
-<BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_msg
+<BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_send_msg
 </UL>
 
-<P><STRONG><a name="[65]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, drlef.o(x$fpl$drleqf))
+<P><STRONG><a name="[64]"></a>__aeabi_cdrcmple</STRONG> (Thumb, 0 bytes, Stack size 32 bytes, drlef.o(x$fpl$drleqf))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = __aeabi_cdrcmple
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
@@ -725,7 +723,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__fpl_dcmp_InfNaN
 </UL>
 
-<P><STRONG><a name="[62]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fadd))
+<P><STRONG><a name="[61]"></a>__aeabi_fadd</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fadd))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fadd
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
@@ -738,12 +736,12 @@ Global Symbols
 <P><STRONG><a name="[6d]"></a>__aeabi_fmul</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fmul
 </UL>
-<BR>[Called By]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
+<BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;convert_to_g
 </UL>
 
 <P><STRONG><a name="[b5]"></a>_fmul</STRONG> (Thumb, 172 bytes, Stack size 16 bytes, fmul.o(x$fpl$fmul), UNUSED)
 
-<P><STRONG><a name="[63]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fsub))
+<P><STRONG><a name="[62]"></a>__aeabi_fsub</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, faddsub.o(x$fpl$fsub))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = __aeabi_fsub
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PORTC_PORTD_IRQHandler
@@ -775,7 +773,7 @@ Local Symbols
 <P><STRONG><a name="[6c]"></a>__NVIC_SetPriority</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, accel.o(i.__NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
+<BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;accel_init
 </UL>
 
 <P><STRONG><a name="[7c]"></a>__NVIC_SetPriority</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, timer.o(i.__NVIC_SetPriority))

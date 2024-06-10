@@ -9,6 +9,8 @@
 #include <stdio.h>
 #include "timer.h"
 
+#define abs(x, y) (x > y ? x - y : y - x)
+
 #define CLEAR_INTR_PORTC_PORTD (1 << 24)
 #define SWITCH_1_PIN 3
 #define SWITCH_2_PIN 12
@@ -28,7 +30,7 @@
 #define SENSITIVITY 0.0625 // Sensitivity for �8g range
 #define CERTAIN_THRESHOLD 0.5
 
-extern volatile uint32_t count = 0;
+extern volatile uint32_t count;
 
 float convert_to_g(int8_t raw_value, float sensitivity);
 void read_accel_data(uint32_t delay);
@@ -69,7 +71,7 @@ int main(void)
     // }
     if (state != STATE_1 && state != STATE_4)
     {
-      if (count - prev_time >= TIME_OUT)
+      if (abs(count, prev_time) >= TIME_OUT)
       {
         state = STATE_1;
       }
@@ -192,7 +194,7 @@ void PIT_IRQHandler()
   }
   if (PIT->CHANNEL[1].TFLG == 1)
   {
-    if (state == STATE_4)
+    if (state == STATE_4 && main_status == MAIN_STATUS_ACTIVE)
     {
       led_toggle(RED_LED);
     }

@@ -103,6 +103,10 @@ void lcd_display_digit(uint8_t NUM)
 		lcd_set_backplane_phase(19, kSLCD_PhaseCActivate); // LCD_P19
 		lcd_set_backplane_phase(18, kSLCD_PhaseDActivate); // LCD_P18
 
+		// 0 0 0 0 0 0 0 1
+		// 0 0 0 0 0 0 1 0
+		// 0 0 0 0 0 1 0 0 
+		// 0 0 0 0 1 0 0 0
 		// Set frontplane segments
 		lcd_set_frontplane_segments(37, kSLCD_PhaseAActivate | kSLCD_PhaseBActivate | kSLCD_PhaseDActivate); // LCD_P37
 		lcd_set_frontplane_segments(17, kSLCD_PhaseDActivate | kSLCD_PhaseBActivate | kSLCD_PhaseCActivate); // LCD_P17
@@ -120,8 +124,8 @@ void lcd_display_digit(uint8_t NUM)
 		lcd_set_frontplane_segments(17, 0);
 
 		lcd_set_backplane_phase(40, kSLCD_PhaseAActivate); // LCD_P40
-		lcd_set_backplane_phase(52, kSLCD_PhaseBActivate); // LCD_P52
-		lcd_set_backplane_phase(19, kSLCD_PhaseCActivate); // LCD_P19
+		//lcd_set_backplane_phase(52, kSLCD_PhaseBActivate); // LCD_P52
+		//lcd_set_backplane_phase(19, kSLCD_PhaseCActivate); // LCD_P19
 		lcd_set_backplane_phase(18, kSLCD_PhaseDActivate); // LCD_P18
 
 		// Set frontplane segments

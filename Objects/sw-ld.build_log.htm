@@ -44,16 +44,18 @@ accel.h(71): warning:  #1-D: last line of file ends without a newline
   #endif
 timer.h(13): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(215): warning:  #1-D: last line of file ends without a newline
+main.c(138): warning:  #1182-D: a declaration cannot have a label
+          int8_t x = 0, y = 0, z = 0;
+main.c(228): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c: 9 warnings, 0 errors
+main.c: 10 warnings, 0 errors
 linking...
 .\Objects\sw-ld.axf: Warning: L6914W: option ro-base ignored when using --scatter.
 .\Objects\sw-ld.axf: Warning: L6914W: option rw-base ignored when using --scatter.
 .\Objects\sw-ld.axf: Warning: L6340W: options first and last are ignored for link type of scattered
-Program Size: Code=7780 RO-data=352 RW-data=28 ZI-data=2048  
+Program Size: Code=7852 RO-data=352 RW-data=32 ZI-data=2048  
 Finished: 0 information, 3 warning and 0 error messages.
-".\Objects\sw-ld.axf" - 0 Error(s), 12 Warning(s).
+".\Objects\sw-ld.axf" - 0 Error(s), 13 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -80,11 +82,11 @@ Package Vendor: NXP
 
    * Component: NXP::Device:Startup@1.0.0
       Include file:  MKL46Z4_features.h
-      Source file:   arm/startup_MKL46Z4.s
-      Include file:  MKL46Z4.h
-      Source file:   system_MKL46Z4.c
       Include file:  system_MKL46Z4.h
       Include file:  fsl_device_registers.h
+      Include file:  MKL46Z4.h
+      Source file:   arm/startup_MKL46Z4.s
+      Source file:   system_MKL46Z4.c
 Build Time Elapsed:  00:00:01
 </pre>
 </body>
