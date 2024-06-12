@@ -5,6 +5,7 @@
 #include "i2c.h"
 #include "systick.h"
 #include "uart.h"
+
 #define ACCEL_DEVICE_ADDRESS 0x1D
 #define ACCEL_WHO_AM_I 0x1A
 
