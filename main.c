@@ -131,7 +131,7 @@ void PORTC_PORTD_IRQHandler()
       case STATE_1:
         state = STATE_2;
         // uart_send_msg("state1");
-        accel_config(MOTION_DETECTION, 16, 10);
+        accel_config(MOTION_DETECTION, 40, 5);
         break;
       case STATE_2:
         // uart_send_msg("state2");

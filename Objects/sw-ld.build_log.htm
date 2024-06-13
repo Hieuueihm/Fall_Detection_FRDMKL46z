@@ -27,30 +27,28 @@ Project File Date:  06/02/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Users\gbmhi\AppData\Local\Keil_v5\ARM\ARM_Compiler_v5\Bin'
 Build target 'Target 1'
-compiling lcd.c...
-systick.h(9): warning:  #1-D: last line of file ends without a newline
-  #endif
-clock.h(8): warning:  #1-D: last line of file ends without a newline
-  #endif
-lcd.h(15): warning:  #1-D: last line of file ends without a newline
-  #endif
-lcd.c: 3 warnings, 0 errors
-compiling i2c.c...
+compiling main.c...
 systick.h(9): warning:  #1-D: last line of file ends without a newline
   #endif
 uart.h(8): warning:  #1295-D: Deprecated declaration uart_init - give arg types
   void uart_init();
 uart.h(12): warning:  #1-D: last line of file ends without a newline
   #endif
+clock.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+lcd.h(15): warning:  #1-D: last line of file ends without a newline
+  #endif
 i2c.h(17): warning:  #1-D: last line of file ends without a newline
   #endif
-i2c.c(58): warning:  #550-D: variable "temp"  was set but never used
-  	unsigned char temp = 0;
-i2c.c(89): warning:  #550-D: variable "temp"  was set but never used
-  	unsigned char temp = 0;
-i2c.c(152): warning:  #1-D: last line of file ends without a newline
-  }
-i2c.c: 7 warnings, 0 errors
+accel.h(72): warning:  #1-D: last line of file ends without a newline
+  #endif
+timer.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(143): warning:  #1182-D: a declaration cannot have a label
+          int8_t x = 0, y = 0, z = 0;
+main.c(239): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c: 10 warnings, 0 errors
 linking...
 .\Objects\sw-ld.axf: Warning: L6914W: option ro-base ignored when using --scatter.
 .\Objects\sw-ld.axf: Warning: L6914W: option rw-base ignored when using --scatter.
@@ -83,12 +81,12 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE@5.0.1
 
    * Component: NXP::Device:Startup@1.0.0
+      Include file:  MKL46Z4.h
       Include file:  MKL46Z4_features.h
-      Source file:   arm/startup_MKL46Z4.s
       Include file:  fsl_device_registers.h
+      Source file:   arm/startup_MKL46Z4.s
       Source file:   system_MKL46Z4.c
       Include file:  system_MKL46Z4.h
-      Include file:  MKL46Z4.h
 Build Time Elapsed:  00:00:00
 </pre>
 </body>
