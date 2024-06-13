@@ -45,7 +45,7 @@ void i2c_init()
 	PORTE->PCR[I2C0_SCL] |= PORT_PCR_PS_MASK | PORT_PCR_PE_MASK;
 	PORTE->PCR[I2C0_SDA] |= PORT_PCR_PS_MASK | PORT_PCR_PE_MASK;
 
-	I2C0->F |= I2C_F_MUL_2;
+	I2C0->F |= I2C_F_MUL_2; // determine the I2C baudrate // mul = 2 and icr = 0 -> 100 kbits
 	I2C0->C1 |= I2C_C1_IICEN_MASK;
 }
 
@@ -119,20 +119,20 @@ void i2c_read_multiple_byte(unsigned char address, unsigned char reg_adddress, i
 	DELAY();
 }
 
-	void i2c_write_single_byte(unsigned char address, unsigned char reg_address, unsigned char data)
-	{
-		I2C_START();
-		I2C0->D = (address << 1) & (0xFE);
-		I2C_WAIT();
+void i2c_write_single_byte(unsigned char address, unsigned char reg_address, unsigned char data)
+{
+	I2C_START();
+	I2C0->D = (address << 1) & (0xFE);
+	I2C_WAIT();
 
-		I2C0->D = reg_address;
-		I2C_WAIT();
+	I2C0->D = reg_address;
+	I2C_WAIT();
 
-		I2C0->D = data;
-		I2C_WAIT();
-		I2C_STOP();
-		DELAY();
-	}
+	I2C0->D = data;
+	I2C_WAIT();
+	I2C_STOP();
+	DELAY();
+}
 void i2c_write_multiple_byte(unsigned char address, unsigned char reg_address, int n, unsigned char data[])
 {
 

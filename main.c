@@ -69,6 +69,9 @@ int main(void)
 
     //   read_accel_data(100);
     // }
+	//snprintf(buffer, sizeof(buffer), "%d\n", SystemCoreClock);
+	//	uart_send_msg(buffer);
+		//delay_ms(1000);
     if (state != STATE_1 && state != STATE_4)
     {
       if (abs(count, prev_time) >= TIME_OUT)
@@ -90,7 +93,6 @@ void PORTC_PORTD_IRQHandler()
     {
       accel_config(FREE_FALL, 6, 3);
       state = STATE_1;
-      led_on(GREEN_LED);
       lcd_display_digit(NUM_0);
     }
     else if (main_status == MAIN_STATUS_STAND_BY)

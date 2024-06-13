@@ -36,7 +36,7 @@ void accel_init()
 	accel_config(FREE_FALL, 6, 3);
 
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG4, 0x04); // Enable Motion/Freefall Interrupt
-	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG5, 0x04); // Freefall interrupt routed to INT1 - PTC6
+	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG5, 0x04); // Freefall interrupt routed to INT1 - PTC5
 	// start
 	// 0b00100001
 	i2c_write_single_byte(ACCEL_DEVICE_ADDRESS, CTRL_REG1, 0x1B);
