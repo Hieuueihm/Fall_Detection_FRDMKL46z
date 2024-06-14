@@ -58,8 +58,8 @@ int main(void)
 
   accel_init();
 
-  pit_timer_init(1, STATE_ACTIVE);
-  pit_timer_init(0.5, STATE_FALL);
+  pit_timer_init(0.5, STATE_ACTIVE);
+  pit_timer_init(0.25, STATE_FALL);
 
   while (1)
   {
