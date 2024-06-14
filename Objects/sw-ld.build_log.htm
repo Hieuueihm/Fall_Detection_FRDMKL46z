@@ -27,6 +27,54 @@ Project File Date:  06/02/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Users\gbmhi\AppData\Local\Keil_v5\ARM\ARM_Compiler_v5\Bin'
 Build target 'Target 1'
+compiling i2c.c...
+systick.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+uart.h(8): warning:  #1295-D: Deprecated declaration uart_init - give arg types
+  void uart_init();
+uart.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+i2c.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+i2c.c(58): warning:  #550-D: variable "temp"  was set but never used
+  	unsigned char temp = 0;
+i2c.c(89): warning:  #550-D: variable "temp"  was set but never used
+  	unsigned char temp = 0;
+i2c.c(152): warning:  #1-D: last line of file ends without a newline
+  }
+i2c.c: 7 warnings, 0 errors
+compiling accel.c...
+systick.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+uart.h(8): warning:  #1295-D: Deprecated declaration uart_init - give arg types
+  void uart_init();
+uart.h(12): warning:  #1-D: last line of file ends without a newline
+  #endif
+i2c.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+accel.h(72): warning:  #1-D: last line of file ends without a newline
+  #endif
+accel.c(74): warning:  #1-D: last line of file ends without a newline
+  }
+accel.c: 6 warnings, 0 errors
+compiling timer.c...
+timer.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+timer.c(29): warning:  #188-D: enumerated type mixed with another type
+  	NVIC_ClearPendingIRQ(22);
+timer.c(30): warning:  #188-D: enumerated type mixed with another type
+  	NVIC_SetPriority(22, 14);
+timer.c(31): warning:  #188-D: enumerated type mixed with another type
+  	NVIC_EnableIRQ(22);
+timer.c(32): warning:  #1-D: last line of file ends without a newline
+  }
+timer.c: 5 warnings, 0 errors
+compiling clock.c...
+systick.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+clock.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+clock.c: 2 warnings, 0 errors
 compiling main.c...
 systick.h(9): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -55,7 +103,7 @@ linking...
 .\Objects\sw-ld.axf: Warning: L6340W: options first and last are ignored for link type of scattered
 Program Size: Code=8100 RO-data=352 RW-data=32 ZI-data=2048  
 Finished: 0 information, 3 warning and 0 error messages.
-".\Objects\sw-ld.axf" - 0 Error(s), 13 Warning(s).
+".\Objects\sw-ld.axf" - 0 Error(s), 33 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,13 +129,13 @@ Package Vendor: NXP
    * Component: ARM::CMSIS:CORE@5.0.1
 
    * Component: NXP::Device:Startup@1.0.0
-      Include file:  MKL46Z4.h
+      Source file:   arm/startup_MKL46Z4.s
       Include file:  MKL46Z4_features.h
       Include file:  fsl_device_registers.h
-      Source file:   arm/startup_MKL46Z4.s
-      Source file:   system_MKL46Z4.c
+      Include file:  MKL46Z4.h
       Include file:  system_MKL46Z4.h
-Build Time Elapsed:  00:00:00
+      Source file:   system_MKL46Z4.c
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
